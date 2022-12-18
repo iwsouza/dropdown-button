@@ -1,12 +1,12 @@
-# Scroll para cima e para baixo
+# Dropdown para cima e para baixo
 
 <div align="center">
-<img src="https://i.imgur.com/oXAndqI.gif" alt="Preview do projeto" width="40%"/>
+<img src="https://i.imgur.com/dwF4EyJ.gif" alt="Preview do projeto" width="40%"/>
 </div>
 
 <p align="center">Segue no <a href="https://instagram.com/iwsouza" target="_blank">insta</a> pra mais dicas</p>
 
-### <p align="center"> 🧪 Veja a <a href="https://scroll-up-down.vercel.app/" target="_blank">demonstração aqui</a></p>
+### <p align="center"> 🧪 Veja a <a href="https://dropdown-button.vercel.app/" target="_blank">demonstração aqui</a></p>
 
 ## 🚀 Começando
 
@@ -31,16 +31,25 @@ Parâmetros
 
 ```ts
   // Obrigatórios
-  variant: 'up' | 'down' | 'up-down';
-  borderColor: hexadecimal;
-  buttonColor: hexadecimal;
+  name: string;
+  variant: 'up' | 'down';
+  items: {
+    id: string | number;
+    name: string;
+    handle?: () => void;
+    subItems?: {
+      id: string | number;
+      name: string;
+      handle: () => void;
+    }[];
+  }[];
 
   // Não obrigatório
-  iconColor?: hexadecimal; // default #FFFFFF
+  theme?: 'light' | 'dark'; //default dark
 ```
 
 ```jsx
-<ScrollUpDown variant="up-down" borderColor="#38424A" buttonColor="#297784" iconColor="#FFFFFF">
+<DropdownButton name="Ações" variant="down" theme="light" items={list} />
 ```
 
 ## ✒️ Suporte
